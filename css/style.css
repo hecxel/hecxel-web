@@ -18,8 +18,11 @@ body {
 }
 
 body.dark-theme {
-  background: linear-gradient(to bottom, #181a1b 0%, #23272f 60%, #222 100%);
+  background: linear-gradient(to bottom, #181a1b 0%, #23272f 60%, #181a1b 100%);
   color: #e0e0e0;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
