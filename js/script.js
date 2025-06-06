@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'Missing Link Movie': 'Missing Link Movie'
   };
   const projectDescriptions = {
-    'Kindle Commercial': 'Technical direction and rigging for animated product shots.',
+    'Kindle Commercial': 'Technical direction and rigging.',
     'Peekaboo VR': 'XR experience for children, focusing on interactive and immersive play.',
     'Missing Link Movie': 'Character TD work for the Golden Globe winning stop-motion film.'
   };
