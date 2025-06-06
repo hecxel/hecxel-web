@@ -15,6 +15,7 @@
     <a href="mailto:hector@hecxel.com" class="contact-icon" title="Email">
       <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
     </a>
+    <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle contact-icon" style="margin-left:0.5rem;filter: grayscale(1);background:#f8f9fa;color:#23272f;">🌙</button>
   </div>
   <!-- Hero Section -->
   <section class="hero">
@@ -69,11 +70,26 @@
     <a href="mailto:hector@hecxel.com" class="contact-icon" title="Email">
       <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
     </a>
-    </div>
-    <p>Let’s connect!</p>
+  </div>
+  <p>Let’s connect!</p>
   </section>
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(dark) {
+      document.body.classList.toggle('dark-theme', dark);
+      themeToggle.textContent = dark ? '☀️' : '🌙';
+    }
+    // Initial theme
+    setTheme(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark));
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>
