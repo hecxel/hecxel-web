@@ -52,10 +52,45 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  position: relative;
+  transition: background 0.4s, -webkit-text-fill-color 0.4s, color 0.4s;
   letter-spacing: -1px;
   margin: 0 0 0.1em 0;
   white-space: normal;
   text-align: left;
+}
+
+.hero .hero-left::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.05em; /* Move underline closer to text */
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #222 0%, #aaa 100%);
+  width: 0%;
+  transition: width 0.35s cubic-bezier(0.77,0,0.18,1);
+  pointer-events: none;
+}
+
+.hero .hero-left:hover,
+.hero .hero-left:focus {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: #23272f;
+  color: #23272f;
+  transition: background 0.4s, -webkit-text-fill-color 0.4s, color 0.4s;
+  /* Remove cursor:pointer so it doesn't look clickable */
+}
+
+.hero .hero-left:hover::after,
+.hero .hero-left:focus::after {
+  width: 100%;
+  /* Grayscale gradient for underline */
+  background: linear-gradient(90deg, #23272f 0%, #aaa 100%);
 }
 
 .hero .hero-right {
