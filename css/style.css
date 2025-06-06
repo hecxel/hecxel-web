@@ -387,6 +387,107 @@ body.dark-theme .contact-icon:hover {
   }
 }
 
+/* Project Modal Styles */
+.project-modal {
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 32, 38, 0.85);
+  transition: opacity 0.3s;
+}
+.project-modal[style*="display: none"] {
+  opacity: 0;
+  pointer-events: none;
+}
+.project-modal-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 32, 38, 0.85);
+  z-index: 0;
+}
+.project-modal-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.8);
+  color: #23272f;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  padding: 2vw 2vw 1.5vw 2vw;
+  max-width: 700px;
+  width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(8px);
+}
+.project-modal-img {
+  max-width: 100%;
+  max-height: 55vh;
+  border-radius: 12px;
+  margin-bottom: 1.2em;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  background: #fff;
+}
+.project-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: #23272f;
+  text-align: center;
+}
+.project-modal-desc {
+  font-size: 1.1rem;
+  color: #23272f;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.project-modal-close {
+  position: absolute;
+  top: 0.7em;
+  right: 1.2em;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: #23272f;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.project-modal-close:hover {
+  color: #6a82fb;
+}
+body.dark-theme .project-modal-content {
+  background: rgba(0,0,0,0.5); /* true half-transparent black for dark mode */
+  color: #e0e0e0;
+}
+body.dark-theme .project-modal-title {
+  color: #e0e0e0;
+}
+body.dark-theme .project-modal-desc {
+  color: #e0e0e0;
+}
+body.dark-theme .project-modal-close {
+  color: #e0e0e0;
+}
+@media (max-width: 700px) {
+  .project-modal-content {
+    padding: 1vw 0.5vw 1vw 0.5vw;
+    max-width: 98vw;
+  }
+  .project-modal-img {
+    max-height: 35vh;
+  }
+}
+
 /* Animations */
 @keyframes fadeIn {
   0% {

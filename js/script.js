@@ -50,4 +50,60 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial animate in
   subtitle.classList.add('subtitle-animate-in');
   setInterval(showNextTitle, 2200);
+
+  // Project modal logic
+  const projectTitles = {
+    'Kindle Commercial': 'Kindle Commercial',
+    'Peekaboo VR': 'Peekaboo VR',
+    'Missing Link Movie': 'Missing Link Movie'
+  };
+  const projectDescriptions = {
+    'Kindle Commercial': 'Technical direction and rigging for animated product shots.',
+    'Peekaboo VR': 'XR experience for children, focusing on interactive and immersive play.',
+    'Missing Link Movie': 'Character TD work for the Golden Globe winning stop-motion film.'
+  };
+
+  function openProjectModal(img) {
+    const modal = document.getElementById('project-modal');
+    const modalImg = modal.querySelector('.project-modal-img');
+    let modalTitle = modal.querySelector('.project-modal-title');
+    let modalDesc = modal.querySelector('.project-modal-desc');
+    // If title element doesn't exist, create it before desc
+    if (!modalTitle) {
+      modalTitle = document.createElement('div');
+      modalTitle.className = 'project-modal-title';
+      modalDesc = modal.querySelector('.project-modal-desc');
+      modalDesc.parentNode.insertBefore(modalTitle, modalDesc);
+    }
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modalTitle.textContent = projectTitles[img.alt] || img.alt || '';
+    modalDesc.textContent = projectDescriptions[img.alt] || '';
+    modal.style.display = 'flex';
+    setTimeout(() => { modal.style.opacity = '1'; }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    modal.style.opacity = '0';
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  // Project image click handler
+  document.querySelectorAll('.project-image').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openProjectModal(img));
+  });
+
+  // Modal close logic
+  const modal = document.getElementById('project-modal');
+  modal.querySelector('.project-modal-close').addEventListener('click', closeProjectModal);
+  modal.querySelector('.project-modal-overlay').addEventListener('click', closeProjectModal);
+  document.addEventListener('keydown', function(e) {
+    if (modal.style.display !== 'none' && (e.key === 'Escape' || e.key === 'Esc')) closeProjectModal();
+  });
 });
