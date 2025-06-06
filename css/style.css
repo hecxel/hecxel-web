@@ -252,7 +252,6 @@ body.dark-theme .about p {
 .gallery-compress .gallery-title {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  background: linear-gradient(0deg, rgba(30,32,38,0.85) 80%, rgba(30,32,38,0.0) 100%);
   color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
@@ -262,11 +261,39 @@ body.dark-theme .about p {
   border-radius: 0 0 18px 18px;
   pointer-events: none;
   transition: opacity 0.25s;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Prettier, softer background for text visibility */
+  background: linear-gradient(0deg, rgba(34,40,49,0.92) 0%, rgba(34,40,49,0.72) 40%, rgba(34,40,49,0.32) 80%, rgba(34,40,49,0.0) 100%);
+  backdrop-filter: blur(2.5px);
+  box-shadow: 0 8px 32px 0 rgba(34,40,49,0.10);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
 }
 
 .gallery-compress .gallery-item:hover .gallery-title,
 .gallery-compress .gallery-item:focus-within .gallery-title {
   opacity: 1;
+  /* Keep background for visibility, but animate underline only */
+}
+
+.gallery-compress .gallery-title::after {
+  content: '';
+  display: block;
+  margin: 0.3em auto 0 auto;
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: #fff;
+  transition: width 0.35s cubic-bezier(0.77,0,0.18,1);
+}
+
+.gallery-compress .gallery-item:hover .gallery-title::after,
+.gallery-compress .gallery-item:focus-within .gallery-title::after {
+  width: 60%;
 }
 
 @media (max-width: 700px) {
