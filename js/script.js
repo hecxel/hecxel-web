@@ -1,27 +1,3 @@
-// Initialize Swiper.js
-const swiper = new Swiper('.swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  slidesPerView: 1,
-  spaceBetween: 30,
-  breakpoints: {
-    700: {
-      slidesPerView: 2,
-      spaceBetween: 30,
-    }
-  }
-});
-
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('loaded');
 
@@ -93,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
   }
 
-  // Project image click handler
-  document.querySelectorAll('.project-image').forEach(img => {
+  // Project image click handler (update for new structure)
+  document.querySelectorAll('.gallery-item .project-image').forEach(img => {
     img.style.cursor = 'pointer';
     img.addEventListener('click', () => openProjectModal(img));
   });
