@@ -31,12 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const projectTitles = {
     'Kindle Commercial': 'Kindle Commercial',
     'Peekaboo VR': 'Peekaboo VR',
-    'Missing Link Movie': 'Missing Link Movie'
+    'Missing Link Movie': 'Missing Link Movie',
+    'Other Projects': 'Other Projects'
   };
   const projectDescriptions = {
     'Kindle Commercial': 'Technical direction and rigging.',
     'Peekaboo VR': 'XR experience for children, focusing on interactive and immersive play.',
-    'Missing Link Movie': 'Character TD work for the Golden Globe winning stop-motion film.'
+    'Missing Link Movie': 'Character TD work for the Golden Globe winning stop-motion film.',
+    'Peter Rabbit Movie': 'Character TD work for the animated feature film.',
+    'Other Projects': 'An extensive portfolio spanning film, advertising, XR, and creative technology—where Héctor has delivered both technical expertise and artistic innovation across a wide range of projects.'
   };
 
   function openProjectModal(img) {
